@@ -13,10 +13,6 @@ let getComputerChoice = () => {
   }
 };
 
-computerSelection = getComputerChoice();
-
-playerSelection = prompt("Enter rock or paper or scissors");
-
 let playRound = (playerSelection, computerSelection) => {
   let selection = playerSelection.toLowerCase();
 
@@ -40,4 +36,12 @@ let playRound = (playerSelection, computerSelection) => {
   }
 };
 
-playRound(playerSelection, computerSelection);
+let game = () => {
+  playerSelection = "rock";
+  for (let i = 0; i < 5; i++) {
+    computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+  }
+};
+
+game();
