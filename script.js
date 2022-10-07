@@ -1,6 +1,14 @@
 let computerSelection;
 let playerSelection;
 
+let computerScore = 0;
+let playerScore = 0;
+
+let gameButtons = document.querySelectorAll(".game-btn");
+let roundResult = document.querySelector(".round-result");
+let score = document.querySelector(".score");
+let gameResult = document.querySelector(".game-result");
+
 let getComputerChoice = () => {
   let choice = Math.floor(Math.random() * 3);
 
@@ -13,35 +21,52 @@ let getComputerChoice = () => {
   }
 };
 
-let playRound = (playerSelection, computerSelection) => {
-  let selection = playerSelection.toLowerCase();
+let checkScore = (playerScore, computerScore) => {
+  if (playerScore >= 5) {
+    gameResult.innerText = `Player wins game is over`;
+    gameButtons.forEach((btn) => {
+      btn.disabled = true;
+    });
+  } else if (computerScore >= 5) {
+    gameResult.innerText`Computer wins game is over`;
+  }
+};
 
+let playRound = (playerSelection, computerSelection) => {
   if (playerSelection == computerSelection) {
-    console.log("Draw!");
+    roundResult.innerText = "Draw!";
+    score.innerText = `Player: ${playerScore} Computer: ${computerScore}`;
     return;
   }
 
-  if (selection == "rock" && computerSelection == "scissors") {
-    console.log(`You Win ${selection} beats ${computerSelection}`);
-  } else if (selection == "rock" && computerSelection == "paper") {
-    console.log(`You Lose ${computerSelection} beats ${selection}`);
-  } else if (selection == "paper" && computerSelection == "rock") {
-    console.log(`You Win ${selection} beats ${computerSelection}`);
-  } else if (selection == "paper" && computerSelection == "scissors") {
-    console.log(`You Lose ${computerSelection} beats ${selection}`);
-  } else if (selection == "scissors" && computerSelection == "paper") {
-    console.log(`You Win ${selection} beats ${computerSelection}`);
-  } else if (selection == "scissors" && computerSelection == "rock") {
-    console.log(`You Win ${computerSelection} beats ${selection}`);
+  if (playerSelection == "rock" && computerSelection == "scissors") {
+    roundResult.innerText = `You Win ${playerSelection} beats ${computerSelection}`;
+    playerScore++;
+  } else if (playerSelection == "rock" && computerSelection == "paper") {
+    roundResult.innerText = `You Lose ${computerSelection} beats ${playerSelection}`;
+    computerScore++;
+  } else if (playerSelection == "paper" && computerSelection == "rock") {
+    roundResult.innerText = `You Win ${playerSelection} beats ${computerSelection}`;
+    playerScore++;
+  } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    roundResult.innerText = `You Lose ${computerSelection} beats ${playerSelection}`;
+    computerScore++;
+  } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    roundResult.innerText = `You Win ${playerSelection} beats ${computerSelection}`;
+    playerScore++;
+  } else if (playerSelection == "scissors" && computerSelection == "rock") {
+    roundResult.innerText = `You Win ${computerSelection} beats ${playerSelection}`;
+    computerScore++;
   }
+
+  score.innerText = `Player: ${playerScore} Computer ${computerScore}`;
+  checkScore(playerScore, computerScore);
 };
 
-let game = () => {
-  playerSelection = "rock";
-  for (let i = 0; i < 5; i++) {
+gameButtons.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    playerSelection = btn.innerText.toLowerCase();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
-  }
-};
-
-game();
+  })
+);
