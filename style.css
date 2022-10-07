@@ -48,6 +48,7 @@ nav .container .logo {
 }
 
 .game .result {
+    font-size: 30px;
   padding: 2rem 4rem;
   background-color: antiquewhite;
   border-radius: 2rem;
