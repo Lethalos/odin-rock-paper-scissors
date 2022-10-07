@@ -28,7 +28,10 @@ let checkScore = (playerScore, computerScore) => {
       btn.disabled = true;
     });
   } else if (computerScore >= 5) {
-    gameResult.innerText`Computer wins game is over`;
+    gameResult.innerText = `Computer wins game is over`;
+    gameButtons.forEach((btn) => {
+      btn.disabled = true;
+    });
   }
 };
 
@@ -59,7 +62,7 @@ let playRound = (playerSelection, computerSelection) => {
     computerScore++;
   }
 
-  score.innerText = `Player: ${playerScore} Computer ${computerScore}`;
+  score.innerText = `Player: ${playerScore} Computer: ${computerScore}`;
   checkScore(playerScore, computerScore);
 };
 

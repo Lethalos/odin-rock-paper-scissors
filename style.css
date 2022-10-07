@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: wheat;
+  color: #333;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+nav .container {
+  background-color: coral;
+  display: flex;
+  justify-content: center;
+}
+
+nav .container .logo {
+  font-size: 50px;
+  color: #fff;
+}
+
+.game .container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5rem;
+}
+
+.game .buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.game .game-btn {
+  width: 250px;
+  font-size: 40px;
+  padding: 1rem 2rem;
+  border: 3px solid coral;
+}
+
+.game .result {
+  padding: 2rem 4rem;
+  background-color: antiquewhite;
+  border-radius: 2rem;
+}
