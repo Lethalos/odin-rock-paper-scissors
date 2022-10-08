@@ -1,3 +1,11 @@
+/*
+Colors
+#403F37
+#A6896F
+#D9C2AD
+#F0F0F2
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -5,34 +13,35 @@
 }
 
 body {
-  background-color: wheat;
-  color: #333;
+  background-color: #d9c2ad;
+  color: #403f37;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 1rem;
 }
 
 nav .container {
-  background-color: coral;
+  background-color: #a6896f;
   display: flex;
   justify-content: center;
 }
 
 nav .container .logo {
   font-size: 50px;
-  color: #fff;
+  color: #f0f0f2;
 }
 
 .game .container {
-  margin-top: 5rem;
+  margin-top: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 5rem;
+  gap: 7rem;
 }
 
 .game .buttons {
@@ -42,14 +51,26 @@ nav .container .logo {
 
 .game .game-btn {
   width: 250px;
-  font-size: 40px;
+  font-size: 30px;
   padding: 1rem 2rem;
-  border: 3px solid coral;
+  border: 3px solid #a6896f;
+  border-radius: 1rem;
+}
+
+.game .game-btn:hover:enabled {
+  background-color: #403f37;
+  border-color: #f0f0f2;
+  color: #f0f0f2;
 }
 
 .game .result {
-    font-size: 30px;
+  width: 700px;
+  font-size: 30px;
   padding: 2rem 4rem;
-  background-color: antiquewhite;
+  background-color: #f0f0f2;
   border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
